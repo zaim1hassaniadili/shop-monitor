@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'shop-monitor';
+  isOpen : Boolean = true
   url : string = "localhost:8080"
-  console.log(url)
 }

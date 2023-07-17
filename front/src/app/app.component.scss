@@ -41,12 +41,13 @@
     fill: #557A46;  
 }
 .dot {
+    background-color: #FE0000;
     position: relative;
     height: 15px;
     width: 15px;
     border-radius: 100%;
 }
-.dot-color {
+.pulse {
     background: green;
 }
 
