@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shop-monitor';
+  url : string = "localhost:8080"
+  console.log(url)
 }

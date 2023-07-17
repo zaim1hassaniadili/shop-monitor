@@ -1,0 +1,76 @@
+.wrapper{
+    background: #F2EE9D;
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+    display: grid;
+    place-items:center;
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: gray;
+    width: 90vw ;
+    height:80vh;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.192);
+} 
+
+.shop-info{
+    margin: 5px;
+}
+.status{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    span{
+        margin: 0 7px;
+    }
+}
+.shop-icon{
+    height: 35vh;
+    width: 90vw;
+    margin-bottom: 5vh; 
+    fill: #557A46;  
+}
+.dot {
+    position: relative;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+}
+.dot-color {
+    background: green;
+}
+
+.pulse.dot::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.8;
+    background: green;
+    border-radius: inherit;
+    animation: pulseAnimation 3s ease-out infinite;
+}
+.shop-name{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.addresse{
+    font-style: italic;
+}
+@keyframes pulseAnimation {
+    100% {
+      opacity: 0;
+      transform: scale(2);
+    }
+}
