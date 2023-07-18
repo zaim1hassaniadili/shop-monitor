@@ -1,7 +1,5 @@
-
-
 /node_modules
 /dist
 /.angular
-/src/environments
-
+angular.json
+src/environments    

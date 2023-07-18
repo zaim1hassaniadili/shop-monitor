@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   isOpen: Boolean = false;
-  url: string = "http://localhost:8080/subscribe";
+  url: string = `${environment.BASE_URL_BACK}/subscribe`;
   eventSource: EventSource = new EventSource(this.url);
   constructor() {
     this.connect()
