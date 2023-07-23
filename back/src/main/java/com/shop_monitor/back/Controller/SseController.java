@@ -1,4 +1,4 @@
-package com.shop_monitor.back;
+package com.shop_monitor.back.Controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
