@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-@CrossOrigin(origins = "http://10.18.203.94:4444/")
+@CrossOrigin(origins = "*")
 @RestController
 @Slf4j
 public class SseController {
