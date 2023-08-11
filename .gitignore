@@ -1,1 +1,2 @@
 front/src/environments/environment.prod.ts
+.env

@@ -26,7 +26,6 @@ class MainActivity : ComponentActivity() {
         GlobalScope.launch {
             try {
                 val result = TickApi.sendTick(toSend)
-                Log.d("INFO", result.body().to)
                 success.show()
             }catch(e: Exception){
                 Log.e("ERROR", e.stackTraceToString())
