@@ -3,6 +3,7 @@ package com.z_ha.shopmonitor
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.z_ha.shopmonitor.model.RetrofitSingleton
@@ -37,6 +38,18 @@ class MainActivity : ComponentActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val tickApi = RetrofitSingleton.getInstance().create(TickApi::class.java)
+        val button : Button = findViewById(R.id.button)
+
+        GlobalScope.launch {
+            try {
+                val currentTick : Tick = tickApi.getLastTick()
+                if(currentTick.isOpen == true) button.setText("Shop Open") else button.setText("Shop Closed")
+            }catch(e: Exception){
+                Log.e("ERROR", e.stackTraceToString())
+            }
+
+        }
         setContentView(R.layout.activity_main)
     }
 }

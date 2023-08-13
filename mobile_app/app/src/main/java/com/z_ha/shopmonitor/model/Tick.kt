@@ -4,11 +4,14 @@ import java.time.LocalDate
 import java.util.Date
 
 class Tick {
-    val status : Boolean?
-    val date: LocalDate?
+    val isOpen : Boolean?
+    val dateTime: LocalDate?
+
 
     constructor(status: Boolean, date: LocalDate){
-        this.status = status
-        this.date = date
+        this.isOpen = status
+        this.dateTime = date
     }
+
+
 }

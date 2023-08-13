@@ -16,6 +16,8 @@ public class ShopMonitor {
 
 
     public Tick getLatestTick() {
+        latestTick = tickRepository.findTopByOrderByIdDesc().orElseThrow(() -> new RuntimeException("Nothing founded"));
+        
         return latestTick;
     }
 }
