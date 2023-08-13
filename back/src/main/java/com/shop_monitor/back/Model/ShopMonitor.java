@@ -18,9 +18,7 @@ public class ShopMonitor {
 
 
     public Tick getLatestTick() {
-        latestTick = tickRepository.findTopByOrderByIdDesc().orElse(()-> {
-            latestTick = new Tick(false, LocalDateTime.now());
-        });
+        latestTick = tickRepository.findTopByOrderByIdDesc().orElse(new Tick(false, LocalDateTime.now()));
         
         return latestTick;
     }
