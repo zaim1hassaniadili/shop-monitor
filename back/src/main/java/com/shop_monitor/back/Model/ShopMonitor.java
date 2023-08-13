@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @Data
 public class ShopMonitor {
@@ -16,7 +18,9 @@ public class ShopMonitor {
 
 
     public Tick getLatestTick() {
-        latestTick = tickRepository.findTopByOrderByIdDesc().orElseThrow(() -> new RuntimeException("Nothing founded"));
+        latestTick = tickRepository.findTopByOrderByIdDesc().orElse(()-> {
+            latestTick = new Tick(false, LocalDateTime.now());
+        });
         
         return latestTick;
     }
