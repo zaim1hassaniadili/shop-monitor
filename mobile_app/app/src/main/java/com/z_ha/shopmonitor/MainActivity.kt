@@ -17,16 +17,17 @@ import java.util.Date
 class MainActivity : ComponentActivity() {
     var b :Boolean = false
     fun UpdateShopStatus(view : View){
-
+        val button : Button = findViewById(R.id.button)
         var success : Toast = Toast.makeText(view.context, "Succesfully reach the server", Toast.LENGTH_LONG)
         success.show()
         var error : Toast = Toast.makeText(view.context, "Connection Failed", Toast.LENGTH_LONG)
 
         var toSend : String = if(b) "true" else "false"
+        if(toSend.toBoolean()) button.setText("Shop Open") else button.setText("Shop Closed")
         b = !b
-        var Tick : Tick = Tick(toSend.toBoolean(), LocalDate.now())
+        var Tick : Tick = Tick(toSend.toBoolean(), LocalDateTime.now())
         val TickApi = RetrofitSingleton.getInstance().create(TickApi::class.java)
-        val body =  Tick(true, LocalDate.now())
+        val body =  Tick(true, LocalDateTime.now())
         GlobalScope.launch {
             try {
                 val result = TickApi.sendTick(Tick)

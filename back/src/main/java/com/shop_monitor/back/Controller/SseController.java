@@ -40,7 +40,7 @@ public class SseController {
     }
 
     @PostMapping(value= "/dispatch")
-    public void dispatchEventToClients(@RequestParam Tick info){
+    public void dispatchEventToClients(@RequestBody Tick info){
 
         for(SseEmitter emitter : emitters){
             try{
