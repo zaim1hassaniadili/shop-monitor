@@ -16,4 +16,8 @@ class Tick {
     }
 
 
+    override fun toString(): String {
+        return "isOpen: ${this.isOpen}, dateTime: ${this.dateTime}"
+    }
+
 }

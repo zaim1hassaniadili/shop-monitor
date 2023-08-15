@@ -25,12 +25,13 @@ class MainActivity : ComponentActivity() {
         var toSend : String = if(b) "true" else "false"
         if(toSend.toBoolean()) button.setText("Shop Open") else button.setText("Shop Closed")
         b = !b
-        var Tick : Tick = Tick(toSend.toBoolean(), LocalDateTime.now())
+        var tick : Tick = Tick(toSend.toBoolean(), LocalDateTime.now())
         val TickApi = RetrofitSingleton.getInstance().create(TickApi::class.java)
         val body =  Tick(true, LocalDateTime.now())
         GlobalScope.launch {
             try {
-                val result = TickApi.sendTick(Tick)
+                val result = TickApi.sendTick(tick)
+                Log.d("WSEND", tick.toString())
                 success.show()
             }catch(e: Exception){
                 Log.e("ERROR", e.stackTraceToString())
@@ -45,7 +46,6 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main)
         val tickApi = RetrofitSingleton.getInstance().create(TickApi::class.java)
         val button : Button = findViewById(R.id.button)
-        var b : Boolean = false
         Log.d("DEBUG ME", "Hello here")
 
         GlobalScope.launch {
