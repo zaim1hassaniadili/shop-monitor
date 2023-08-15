@@ -19,7 +19,11 @@ public class ShopMonitor {
 
     public Tick getLatestTick() {
         latestTick = tickRepository.findTopByOrderByIdDesc().orElse(new Tick(false, LocalDateTime.now()));
-        
         return latestTick;
+    }
+    public Tick saveTick(Tick tick){
+        this.currentStatus = tick.isOpen;
+        this.latestTick = tick;
+        return tickRepository.save(tick);
     }
 }

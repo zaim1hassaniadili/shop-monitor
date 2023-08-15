@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface TickApi {
     @POST("/dispatch")
-    suspend fun sendTick(@Query("info") info: String)
+    suspend fun sendTick(@Query("info") info: Tick)
     @GET("/status")
     suspend fun getLastTick() : Tick
 

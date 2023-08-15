@@ -24,14 +24,18 @@ public class TickController {
 
     @GetMapping("/status")
     public ResponseEntity<Tick> sendLastTick(){
-
         return ResponseEntity.ok(shopMonitor.getLatestTick());
     }
 
+    /***
+     *
+     * Not really useful
     @PostMapping("/tick")
     public ResponseEntity<?> tick(@RequestBody Tick tick){
         tickRepository.save(tick);
         log.info("SHOW_TICK", tick);
         return (ResponseEntity<?>) ResponseEntity.ok();
     }
+     *
+     */
 }

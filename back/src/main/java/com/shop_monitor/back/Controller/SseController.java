@@ -1,6 +1,9 @@
 package com.shop_monitor.back.Controller;
 
+import com.shop_monitor.back.Model.ShopMonitor;
+import com.shop_monitor.back.Model.Tick;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
@@ -14,6 +17,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Slf4j
 public class SseController {
     public List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
+    @Autowired
+    public final ShopMonitor shopMonitor;
+
+    public SseController(ShopMonitor shopMonitor) {
+        this.shopMonitor = shopMonitor;
+    }
 
     @RequestMapping(value="/subscribe", consumes = MediaType.ALL_VALUE)
     public SseEmitter subscribe(){
@@ -31,12 +40,13 @@ public class SseController {
     }
 
     @PostMapping(value= "/dispatch")
-    public void dispatchEventToClients(@RequestParam String info){
+    public void dispatchEventToClients(@RequestParam Tick info){
 
         for(SseEmitter emitter : emitters){
             try{
-                emitter.send(SseEmitter.event().name("status").data(info));
+                emitter.send(SseEmitter.event().name("status").data(info.isOpen()));
                 log.info("Emitter has been send");
+                shopMonitor.saveTick(info);
             }catch(IOException e){
                 emitters.remove(emitter);
             }
