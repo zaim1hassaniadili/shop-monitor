@@ -12,7 +12,7 @@ spring:
     driverClassName: org.postgresql.Driver
   cors:
     origins:
-      - *
+      - http://217.174.244.115:*
       # - http://localhost:2222
       # - http://localhost:45981
       # - http://192.168.232.2:*
