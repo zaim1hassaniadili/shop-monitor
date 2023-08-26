@@ -26,4 +26,8 @@ public class Tick {
         this.isOpen = b;
         this.dataTime = now;
     }
+
+    public String toString(){
+        return "date: " + String.valueOf(this.dataTime) + "- Bool: " + String.valueOf(this.isOpen);
+    }
 }
