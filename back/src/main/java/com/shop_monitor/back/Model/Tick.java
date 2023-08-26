@@ -18,7 +18,7 @@ public class Tick {
     @GeneratedValue(strategy= GenerationType.AUTO)
     Long id;
     boolean isOpen;
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss.SSS")
     LocalDateTime dataTime;
 
 
