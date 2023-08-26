@@ -1,10 +1,7 @@
 package com.shop_monitor.back.Model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -19,6 +16,7 @@ public class Tick {
     Long id;
     boolean open;
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @Column(name="dateTime")
     LocalDateTime dateTime;
 
 
