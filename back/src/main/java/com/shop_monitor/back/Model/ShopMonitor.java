@@ -25,9 +25,6 @@ public class ShopMonitor {
         return latestTick;
     }
     public Tick saveTick(Tick tick){
-        this.currentStatus = tick.isOpen;
-        this.latestTick = tick;
-        log.info("dateTime: " + tick.dataTime.toString() + " isOpen: "+ tick.isOpen);
         return tickRepository.save(tick);
     }
 }
