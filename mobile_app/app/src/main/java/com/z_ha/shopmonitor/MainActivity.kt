@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
     fun UpdateShopStatus(view : View){
         val button : Button = findViewById(R.id.button)
         var success : Toast = Toast.makeText(view.context, "Succesfully reach the server", Toast.LENGTH_LONG)
-        success.show()
+
         var error : Toast = Toast.makeText(view.context, "Connection Failed", Toast.LENGTH_LONG)
 
         var toSend : String = if(b) "true" else "false"
@@ -32,12 +32,11 @@ class MainActivity : ComponentActivity() {
             try {
                 val result = TickApi.sendTick(tick)
                 Log.d("WSEND", tick.toString())
-                success.show()
+
             }catch(e: Exception){
                 Log.e("ERROR", e.stackTraceToString())
                 error.show()
             }
-
         }
 
     }

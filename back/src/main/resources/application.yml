@@ -10,3 +10,13 @@ spring:
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
     driverClassName: org.postgresql.Driver
+  cors:
+    origins:
+      - *
+      # - http://localhost:2222
+      # - http://localhost:45981
+      # - http://192.168.232.2:*
+      # - http://192.168.232.2:35338
+      # - http://localhost:46449
+      # - http://192.168.43.1:39760
+
