@@ -45,7 +45,7 @@ public class SseController {
         for(SseEmitter emitter : emitters){
             try{
                 log.info("INFO ::" + info.toString());
-                log.info("HERE !!! " + info.isOpen() );
+                log.info("HERE !!! " + info.open() );
                 emitter.send(SseEmitter.event().name("status").data(String.valueOf(info.isOpen())));
                 log.info("Emitter has been send");
                 shopMonitor.saveTick(info);

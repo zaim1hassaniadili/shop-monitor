@@ -17,17 +17,17 @@ public class Tick {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     Long id;
-    boolean isOpen;
+    boolean open;
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss.SSS")
     LocalDateTime dataTime;
 
 
     public Tick(boolean b, LocalDateTime now) {
-        this.isOpen = b;
+        this.open = b;
         this.dataTime = now;
     }
 
     public String toString(){
-        return "date: " + String.valueOf(this.dataTime) + "- Bool: " + String.valueOf(this.isOpen);
+        return "date: " + String.valueOf(this.dataTime) + "- Bool: " + String.valueOf(this.open);
     }
 }
