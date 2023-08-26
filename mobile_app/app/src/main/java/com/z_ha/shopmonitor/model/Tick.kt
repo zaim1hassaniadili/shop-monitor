@@ -5,19 +5,19 @@ import java.time.LocalDateTime
 import java.util.Date
 
 class Tick {
-    val isOpen : Boolean?
-    val dateTime: LocalDateTime?
+    val open : String?
+    val dateTime: String?
     val id: Long = 0
 
 
-    constructor(status: Boolean, date: LocalDateTime){
-        this.isOpen = status
+    constructor(status: String, date: String){
+        this.open = status
         this.dateTime = date
     }
 
 
     override fun toString(): String {
-        return "isOpen: ${this.isOpen}, dateTime: ${this.dateTime}"
+        return "isOpen: ${this.open}, dateTime: ${this.dateTime}"
     }
 
 }
