@@ -10,7 +10,8 @@ import { environment } from 'src/environments/environment';
 
 export class AppComponent {
   isOpen: Boolean = false;
-  url: string = `${environment.BASE_URL_BACK}/subscribe`;
+  
+  url: string = `http://${environment.BASE_URL_BACK}/subscribe`;
   eventSource: EventSource = new EventSource(this.url);
   constructor() {
     this.connect()
