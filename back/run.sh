@@ -1,0 +1,1 @@
+docker run -p 8080:8080 -e POSTGRES_URL=jdbc:postgresql://db:5432/shop -e POSTGRES_USER=hiemale -e POSTGRES_PASSWORD=hiemale back2

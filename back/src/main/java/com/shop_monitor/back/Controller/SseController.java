@@ -11,11 +11,13 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.logging.Logger;
 
 @CrossOrigin(origins = "*")
 @RestController
 @Slf4j
 public class SseController {
+    private static Logger log = Logger.getLogger(SseController.class.getName());
     public List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
     @Autowired
     public final ShopMonitor shopMonitor;

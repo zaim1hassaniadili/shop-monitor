@@ -1,16 +1,19 @@
 package com.shop_monitor.back.Model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.shop_monitor.back.Controller.SseController;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.logging.Logger;
 
 @Data
 @Entity
 @RequiredArgsConstructor
 public class Tick {
+    private static Logger log = Logger.getLogger(Tick.class.getName());
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     Long id;

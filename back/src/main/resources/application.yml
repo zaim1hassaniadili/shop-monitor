@@ -3,7 +3,7 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
   datasource:
     platform: postgres
     url: ${POSTGRES_URL}
@@ -13,10 +13,10 @@ spring:
   cors:
     origins:
       - http://217.174.244.115:*
-      # - http://localhost:2222
-      # - http://localhost:45981
-      # - http://192.168.232.2:*
-      # - http://192.168.232.2:35338
-      # - http://localhost:46449
-      # - http://192.168.43.1:39760
+      - http://localhost:2222
+      - http://localhost:45981
+      - http://192.168.232.2:*
+      - http://192.168.232.2:35338
+      - http://localhost:46449
+      - http://192.168.43.1:39760
 
