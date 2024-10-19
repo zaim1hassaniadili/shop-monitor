@@ -21,7 +21,7 @@ services:
       timeout: 3s
       retries: 5
     networks:
-      - my_custom_network
+      - mynetwork
 
   back:
     image: back
@@ -29,20 +29,20 @@ services:
       context: ./back
       dockerfile: Dockerfile
     environment:
-      - "POSTGRES_URL=${POSTGRES_URL}"
-      - "POSTGRES_USER=${POSTGRES_USER}"
-      - "POSTGRES_PASSWORD:${POSTGRES_PASSWORD}"
+      - POSTGRES_URL=${POSTGRES_URL}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     depends_on:
       db:
         condition: service_healthy
     networks:
-      - my_custom_network
+      - mynetwork
 
 volumes:
   data_db:
 
 networks:
-  my_custom_network:
+  mynetwork:
     driver: bridge
 #   db:
 #     image: postgres:13
