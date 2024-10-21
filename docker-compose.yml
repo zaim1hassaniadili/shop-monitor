@@ -37,6 +37,14 @@ services:
         condition: service_healthy
     networks:
       - mynetwork
+  
+  front:
+    image: front
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    networks:
+      - mynetwork
 
 volumes:
   data_db:
